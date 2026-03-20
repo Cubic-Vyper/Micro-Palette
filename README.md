@@ -11,7 +11,7 @@ this device will detect the color of something and display/type it
 | M3 x 12mm Bolts | This will hold everything together | $0.05 | 4 | $0.20 | [Link to Listing](https://www.alibaba.com/product-detail/M1-6-M2-M2-5-M3_1601369820018.html?spm=a2700.details.you_may_like.4.5ca4c478zYw5pz) | Alibaba |
 | 3D Printed Case | This will hold everything | $0.00 | 1 | $0.00 | There isn't a link | I will print this |
 
-**Total Cost:** $16.52
+**Total Cost:** $16.72
 
 
 here is the Micro Palette fully assembled:
