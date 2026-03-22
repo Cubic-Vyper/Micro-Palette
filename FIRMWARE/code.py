@@ -23,19 +23,27 @@ OLED_SDA = board.D4
 #SK6812 pin
 LED_DATA = board.D5
 
+#Switch pins
+SWITCH_PIN = board.D6
+
 #start sensor i2c 
 sensor_i2c = busio.I2C(SENSOR_SCL, SENSOR_SDA)
 
 #start color sensor
 sensor = adafruit_tcs34725.TCS34725(sensor_i2c)
 sensor.integration_time = 50  #sensor collection time
-sensor.gain = 4  #amplify signal 
+sensor.gain = 4  
 
 #turn on sensor LED 
 sensor_led = digitalio.DigitalInOut(SENSOR_LED)
 sensor_led.direction = digitalio.Direction.OUTPUT
 sensor_led.value = True  
 print("sensor LED on")
+
+#Switch setup
+switch = digitalio.DigitalInOut(SWITCH_PIN)
+switch.direction = digitalio.Direction.INPUT
+switch.pull = digitalio.Pull.UP
 
 #start oled i2c 
 oled_i2c = busio.I2C(OLED_SCL, OLED_SDA)
@@ -105,27 +113,43 @@ def update_leds(r8, g8, b8):
     Pixels.fill((r8, g8, b8))
 
 #main loop
-update_oled("scanning...", 0, 0, 0)
+update_oled("Press Button...", 0, 0, 0)
+
+#turn off LEDs
+Pixels.fill((0, 0, 0))
 
 while True:
     try:
-        #read 16-bit values
-        r16, g16, b16 = sensor.color_raw
+        if not switch.value:  # button pressed
 
-        #convert to 8-bit
-        r8, g8, b8 = convert_to_8bit(r16, g16, b16)
+            #values
+            r16, g16, b16 = sensor.color_raw
 
-        #find closest color
-        color_name = find_closest_color(r8, g8, b8)
+            #convert to 8-bit
+            r8, g8, b8 = convert_to_8bit(r16, g16, b16)
 
-        #update oled with color name and 16-bit values
-        update_oled(color_name, r16, g16, b16)
+            #find closest
+            color_name = find_closest_color(r8, g8, b8)
+
+            #update oled
+            update_oled(color_name, r16, g16, b16)
         
-        #update leds 
-        update_leds(r8, g8, b8)
+            #update leds    
+            update_leds(r8, g8, b8)
 
-        #0.5 second delay before next scan -- this will prevent accidental scans
-        time.sleep(0.5)
+            #Prevent mutiple scans in one press
+            time.sleep(0.2)
+            
+            
+            while not switch.value:
+                time.sleep(0.05)
+            
+            time.sleep(0.1)
+            
+            update_oled("Press Button...", 0, 0, 0)
+            
+        else:
+            time.sleep(0.05)
 
     except Exception as e:
         #show error
