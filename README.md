@@ -12,27 +12,28 @@ this device will detect the color of something and display/type it
 | M3 x 12mm Bolts | This will hold everything together | $0.05 | 4 | $0.20 | [Link to Listing](https://www.alibaba.com/product-detail/M1-6-M2-M2-5-M3_1601369820018.html?spm=a2700.details.you_may_like.4.5ca4c478zYw5pz) | Alibaba |
 | Keyboard switch | This will control when the scan starts (when pressed) | $0.18 | 1 | $0.18 | [Link to Listing](https://www.alibaba.com/product-detail/Outemu-5-Pin-Silent-Honey-Peach_1601612452658.html?spm=a2700.prosearch.normal_offer.d_image.307067afogXIvl&priceId=5d3e52ef2cff40e1ba8b105b1524f7ee) | Alibaba |
 | Keycap | This will go on the switch | $0.80 | 1 | $0.80 | [Link to Listing](https://www.alibaba.com/product-detail/Professional-Manufacturer-for-Blank-Abs-Injection_1601714378360.html?spm=a2700.prosearch.normal_offer.d_image.496267afcwRaxK&priceId=abf80396b725478bbaf1a841b232f667) | Alibaba |
+| Custom PCB | This will connect all the parts | $5.22 | 1 | $5.22 | [Link to Listing](https://jlcpcb.com/) | JLCPCB |
 | 3D Printed Case | This will hold everything | $0.00 | 1 | $0.00 | There isn't a link | I will print this |
 
-**Total Cost:** $17.82
+**Total Cost:** $23.04
 
 
 here is the Micro Palette fully assembled:
 
 
-<img width="842" height="516" alt="image" src="https://github.com/user-attachments/assets/8a2da980-0cd1-40f4-8d1e-9e57921f1f7b" />
+-
 
 
 
 to assemble, first add the assembled pcb to the case:
 
-<img width="826" height="320" alt="image" src="https://github.com/user-attachments/assets/b010207e-9766-41b3-8bc4-a2dc4e0074b2" />
+-
 
 
-<img width="1064" height="563" alt="image" src="https://github.com/user-attachments/assets/575e789c-901a-4075-9a48-a8a25799877c" />
+-
 
 
 Finaly add the lid and screw it on:
 
-<img width="998" height="546" alt="image" src="https://github.com/user-attachments/assets/17c16b26-781c-4082-82b9-01b69bc38e27" />
+-
 
