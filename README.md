@@ -22,7 +22,8 @@ here is the Micro Palette fully assembled:
 
 
 
-<img width="1600" height="542" alt="Micro-Palette" src="https://github.com/user-attachments/assets/f883ce36-7fbb-451a-b47b-b55bea9cde4f" />
+<img width="691" height="542" alt="Micro-Palette" src="https://github.com/user-attachments/assets/54a60d55-bcbd-4e83-a8e0-e375ed4c5dd8" />
+
 
 
 
