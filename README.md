@@ -10,9 +10,11 @@ this device will detect the color of something and display/type it
 | Seeed Studio XIAO RP2040 | This is the brains of the device | $7.22 | 1 | $7.22 | [Link to Listing](https://www.alibaba.com/product-detail/For-Nano-RP2040-Motherboard-Seeed-Studio_1601682654909.html?spm=a2700.prosearch.normal_offer.d_image.37bb67af8OBDHL&priceId=30e42bd84a1d4376b8281d6fc59370ef) | Alibaba |
 | SK6812 MINI-E LEDs | this will display the color | $0.06 | 2 | $0.12 | [Link to Listing](https://www.alibaba.com/product-detail/Reverse-Mount-6028-Rgb-Smd-Led_1600431875998.html?spm=a2700.prosearch.normal_offer.d_image.5f3567afr3rgNd&priceId=f14f6aa29c234970bb282fd6405c23b3) | Alibaba |
 | M3 x 12mm Bolts | This will hold everything together | $0.05 | 4 | $0.20 | [Link to Listing](https://www.alibaba.com/product-detail/M1-6-M2-M2-5-M3_1601369820018.html?spm=a2700.details.you_may_like.4.5ca4c478zYw5pz) | Alibaba |
+| Keyboard switch | This will control when the scan starts (when pressed) | $0.18 | 1 | $0.18 | [Link to Listing](https://www.alibaba.com/product-detail/Outemu-5-Pin-Silent-Honey-Peach_1601612452658.html?spm=a2700.prosearch.normal_offer.d_image.307067afogXIvl&priceId=5d3e52ef2cff40e1ba8b105b1524f7ee) | Alibaba |
+| Keycap | This will go on the switch | $0.80 | 1 | $0.80 | [Link to Listing](https://www.alibaba.com/product-detail/Professional-Manufacturer-for-Blank-Abs-Injection_1601714378360.html?spm=a2700.prosearch.normal_offer.d_image.496267afcwRaxK&priceId=abf80396b725478bbaf1a841b232f667) | Alibaba |
 | 3D Printed Case | This will hold everything | $0.00 | 1 | $0.00 | There isn't a link | I will print this |
 
-**Total Cost:** $16.72
+**Total Cost:** $17.82
 
 
 here is the Micro Palette fully assembled:
