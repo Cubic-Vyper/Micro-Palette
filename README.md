@@ -21,19 +21,26 @@ this device will detect the color of something and display/type it
 here is the Micro Palette fully assembled:
 
 
--
+
+<img width="1600" height="542" alt="Micro-Palette" src="https://github.com/user-attachments/assets/f883ce36-7fbb-451a-b47b-b55bea9cde4f" />
+
 
 
 
 to assemble, first add the assembled pcb to the case:
 
--
+
+<img width="795" height="403" alt="image" src="https://github.com/user-attachments/assets/28131299-2208-4394-b537-c159a7524a67" />
 
 
--
+
+<img width="911" height="484" alt="image" src="https://github.com/user-attachments/assets/ca004cb7-0de9-4f83-b229-0f7787cce119" />
+
 
 
 Finaly add the lid and screw it on:
 
--
+
+<img width="916" height="515" alt="image" src="https://github.com/user-attachments/assets/3fe123ec-6b14-4c0e-b92a-bb3cf000ddcf" />
+
 
