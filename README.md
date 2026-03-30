@@ -1,5 +1,5 @@
 # Micro-Palette
-this device will detect the color of something and display/type it
+This device will scan the color of something when the button is pressed, display the name of the color and the color code (rgb), and it will light up an LED under a keyboard switch as the exatct color scaned. I'm making this because it's always so annoying trying to find the color of somthing irl and then use that in inkscape, so I thought this will be a fun chalange to solve that. 
 
  Bill of Materials
 
