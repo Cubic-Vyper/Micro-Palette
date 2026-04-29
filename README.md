@@ -1,6 +1,8 @@
 # Micro-Palette
 This device will scan the color of something when the button is pressed, display the name of the color and the color code (rgb), and it will light up an LED under a keyboard switch as the exatct color scaned. I'm making this because it's always so annoying trying to find the color of somthing irl and then use that in inkscape, so I thought this will be a fun chalange to solve that. 
 
+Stasis Page PDF (cuz you would need an account to view the page): https://github.com/Cubic-Vyper/Micro-Palette/blob/f946c92044628488ba2a7e05cdcd6b13fcdf1a42/Stasis_ProjectPage-Micro%20Palette.pdf
+
  Bill of Materials
 
 | Name | Purpose | Cost Per Item (USD) | Quantity | Total (USD) | Link | Distributor |
