@@ -9,28 +9,24 @@ import digitalio
 
 #define pins
 
-# Sensor I2C pins
-SENSOR_SCL = board.D0
-SENSOR_SDA = board.D1
+# I2C pins (sensor and oled)
+I2C_SDA = board.D4
+I2C_SCL = board.D5
 
-#sensor led (illuminates object in dark case)
-SENSOR_LED = board.D2
-
-# oled I2C pins
-OLED_SCL = board.D3
-OLED_SDA = board.D4
+#sensor led (illuminates object)
+SENSOR_LED = board.D8
 
 #SK6812 pin
-LED_DATA = board.D5
+LED_DATA = board.D3
 
-#Switch pins
+#Switch pin
 SWITCH_PIN = board.D6
 
-#start sensor i2c 
-sensor_i2c = busio.I2C(SENSOR_SCL, SENSOR_SDA)
+# start i2c 
+i2c = busio.I2C(I2C_SCL, I2C_SDA)
 
 #start color sensor
-sensor = adafruit_tcs34725.TCS34725(sensor_i2c)
+sensor = adafruit_tcs34725.TCS34725(i2c)
 sensor.integration_time = 50  #sensor collection time
 sensor.gain = 4  
 
@@ -45,36 +41,29 @@ switch = digitalio.DigitalInOut(SWITCH_PIN)
 switch.direction = digitalio.Direction.INPUT
 switch.pull = digitalio.Pull.UP
 
-#start oled i2c 
-oled_i2c = busio.I2C(OLED_SCL, OLED_SDA)
-
 #start oled display
-oled = adafruit_ssd1306.SSD1306_I2C(128, 32, oled_i2c)   
+oled = adafruit_ssd1306.SSD1306_I2C(128, 32, i2c)   
 
 #start SK6812 LEDs
-Pixels = neopixel.NeoPixel(LED_DATA, 2, brightness=0.3, auto_write=True)
+pixels = neopixel.NeoPixel(LED_DATA, 2, brightness=0.3, auto_write=True)
 
 #color codes
 COLORS = {
-    "red": (255, 0, 0),
-    "green": (0, 255, 0),
-    "blue": (0, 0, 255),
-    "yellow": (255, 255, 0),
-    "cyan": (0, 255, 255),
-    "magenta": (255, 0, 255),
-    "white": (255, 255, 255),
-    "black": (0, 0, 0),
-    "orange": (255, 165, 0),
-    "purple": (128, 0, 128)
+    "red":     (255,  80, 107),
+    "green":   (111, 255, 160),
+    "blue":    ( 75, 149, 255),
+    "yellow":  (255, 197, 122),
+    "cyan":    (100, 232, 255),
+    "pink": (255, 112, 172),
+    "orange":  (255, 129, 103),
+    "purple":  (190, 154, 255),
+    "white":   (255, 253, 253),
+    "gray": (212, 253, 255),
+    "black":   (  0,   0,   0),
 }
 
-def convert_to_8bit(r, g, b):
-    r8 = r * 255 // 65535
-    g8 = g * 255 // 65535
-    b8 = b * 255 // 65535
-    return r8, g8, b8
 
-def find_closest_color(r8, g8, b8):
+def find_closest_color(r8, g8, b8, r16, g16, b16):
     closest_name = "unknown"
     smallest_distance = 999999
 
@@ -90,49 +79,73 @@ def find_closest_color(r8, g8, b8):
     #only return color name if it's close enough 
     if smallest_distance > 20000: 
         return "unknown"
-    else:
-        return closest_name  
+    if closest_name == "white" and max(r16, g16, b16) < 2500:
+        return "gray"
 
-def update_oled(color_name, r16, g16, b16):
+    return closest_name
+
+def update_oled(color_name, r8, g8, b8):
     #clear display 
     oled.fill(0)
     
     #show color name 
     oled.text(color_name, 0, 0, 1)
     
-    #show raw 16-bit RG values 
-    oled.text(f"R:{r16:4d} G:{g16:4d}", 0, 12, 1)
+    #show 8-bit RG values 
+    oled.text(f"R:{r8:3d} G:{g8:3d}", 0, 12, 1)
     
-    #show raw 16-bit blue value
-    oled.text(f"B:{b16:4d}", 0, 22, 1)
+    #show 8-bit blue value
+    oled.text(f"B:{b8:3d}", 0, 22, 1)
     
     #update display
     oled.show()
 
 def update_leds(r8, g8, b8):
-    Pixels.fill((r8, g8, b8))
+    pixels.fill((r8, g8, b8))
+
+# normalize color
+
+WB_R = 4607
+WB_G = 3628
+WB_B = 2082
+
+
+def normalize_color(r, g, b):
+
+    r_bal = r / WB_R
+    g_bal = g / WB_G
+    b_bal = b / WB_B
+
+    if max(r_bal, g_bal, b_bal) < 0.08:
+        return (0, 0, 0)
+
+    max_bal = max(r_bal, g_bal, b_bal)
+    r8 = min(255, int((r_bal / max_bal) * 255))
+    g8 = min(255, int((g_bal / max_bal) * 255))
+    b8 = min(255, int((b_bal / max_bal) * 255))
+
+    return r8, g8, b8
+
 
 #main loop
 update_oled("Press Button...", 0, 0, 0)
 
 #turn off LEDs
-Pixels.fill((0, 0, 0))
+pixels.fill((0, 0, 0))
 
 while True:
     try:
         if not switch.value:  # button pressed
 
             #values
-            r16, g16, b16 = sensor.color_raw
-
-            #convert to 8-bit
-            r8, g8, b8 = convert_to_8bit(r16, g16, b16)
-
+            r16, g16, b16, _ = sensor.color_raw
+            r8, g8, b8 = normalize_color(r16, g16, b16)
+            
             #find closest
-            color_name = find_closest_color(r8, g8, b8)
+            color_name = find_closest_color(r8, g8, b8, r16, g16, b16)
 
             #update oled
-            update_oled(color_name, r16, g16, b16)
+            update_oled(color_name, r8, g8, b8)
         
             #update leds    
             update_leds(r8, g8, b8)
@@ -140,13 +153,12 @@ while True:
             #Prevent mutiple scans in one press
             time.sleep(0.2)
             
-            
             while not switch.value:
                 time.sleep(0.05)
             
             time.sleep(0.1)
             
-            update_oled("Press Button...", 0, 0, 0)
+            
             
         else:
             time.sleep(0.05)
