@@ -3,6 +3,8 @@ This device will scan the color of something when the button is pressed, display
 
 Stasis Page PDF (cuz you would need an account to view the page): https://github.com/Cubic-Vyper/Micro-Palette/blob/f946c92044628488ba2a7e05cdcd6b13fcdf1a42/Stasis_ProjectPage-Micro%20Palette.pdf
 
+Demo Video: [https://youtu.be/u-WEpDEmPeA](https://youtu.be/u-WEpDEmPeA)
+
  Bill of Materials
 
 | Name | Purpose | Cost Per Item (USD) | Quantity | Total (USD) | Link | Distributor |
@@ -25,26 +27,38 @@ here is the Micro Palette fully assembled:
 
 
 
+<img width="650" height="367" alt="image" src="https://github.com/user-attachments/assets/ce5b2951-1226-443c-8b68-4496202b91f8" />
+
+
+
+
 <img width="691" height="542" alt="Micro-Palette" src="https://github.com/user-attachments/assets/54a60d55-bcbd-4e83-a8e0-e375ed4c5dd8" />
 
 
 
 
 
-to assemble, first add the assembled pcb to the case:
+to assemble, first gather all of the parts:
 
-
-<img width="795" height="403" alt="image" src="https://github.com/user-attachments/assets/28131299-2208-4394-b537-c159a7524a67" />
-
-
-
-<img width="911" height="484" alt="image" src="https://github.com/user-attachments/assets/ca004cb7-0de9-4f83-b229-0f7787cce119" />
+<img width="960" height="611" alt="image" src="https://github.com/user-attachments/assets/9036afd1-86fd-4dee-9807-d99f4a21f795" />
 
 
 
-Finaly add the lid and screw it on:
+add the assembled pcb to the case:
 
 
-<img width="916" height="515" alt="image" src="https://github.com/user-attachments/assets/3fe123ec-6b14-4c0e-b92a-bb3cf000ddcf" />
+<img width="820" height="466" alt="image" src="https://github.com/user-attachments/assets/23fde7f5-f931-4e98-84ee-fa57704676ec" />
+
+
+add the lid and screw it on:
+
+
+<img width="806" height="436" alt="image" src="https://github.com/user-attachments/assets/c89f97d8-1e22-49fb-8e5c-21480bbd819c" />
+
+
+Finally add the keycap:
+
+
+<img width="660" height="348" alt="image" src="https://github.com/user-attachments/assets/88267684-d058-4c88-a448-68dac91cfece" />
 
 
